@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+</head>
+<style>
+   
+    .container{
+        margin: 10%;
+        padding: 3em;
+        width: 600px;
+        border: 2px solid grey;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        box-shadow: 0px 0px 9px black;
+
+    }
+    .item{
+        
+        
+        margin: 2px;
+        padding: 1px;
+        height: 100px;
+        width: 100px;
+        border: 1px solid rgba(123,133,213);
+        min-width: 20px;
+        overflow: hidden;
+        cursor:  pointer;
+
+    }
+    .item:hover{
+        width: 100px;
+        height: 100px;
+        width: max-content;
+        box-shadow: 0px 0px 4px rgb(92, 27, 153);
+        transform: scale(2);
+    }
+    h1{
+        text-align: center;
+        font-family: 'Lucida Sans';
+        margin-top: 70px;
+        background-color: rgb(92, 27, 153);
+        height: 50px;
+        padding: 6px;
+        color: rgb(241, 232, 232);
+    }
+        @media (max-width: 720px) {
+            .item{
+                width: 90%;
+                height: 90%;
+            }
+        }
+        .popup{
+            position: fixed;
+            top: 25%;
+            right: 25%;
+            border: 2px solid blueviolet;
+            width: 720px;
+            height: 480px;
+            object-fit: contain;
+            z-index: 54;
+            display: none;
+           
+        
+        /*     transform: scale(2); */
+        }
+        span{
+            position: absolute;
+            top: 0;
+            right: 20px;
+            font-size: 79px;
+            font-weight: bold;
+            cursor: pointer;z-index: 54;
+
+            text-shadow: 0px 0px 10px black;
+        }
+        @media (max-width:720px) 
+        {
+            .popup{
+                width: 91%;
+                height: 91%;
+            }    
+        }
+        
+       
+         
+</style>
+<body>
+    <h1>MY GALLERY</h1>
+    <div class="container">
+       
+        <div ><img class="item" src="images/20221214_091946.jpg" alt=""></div>
+        <div><img class="item"src="images/20221217_154253.jpg" alt=""></div>
+        <div><img class="item" src="images/20230107_174655.jpg" alt=""></div>
+        <div><img class="item"src="images/20230311_095725.jpg" alt=""></div>
+        <div><img class="item" src="images/20230315_181305.jpg" alt=""></div>
+        <div><img class="item"src="images/20230323_152748.jpg" alt=""></div>
+        <div><img class="item" src="images/20230502_185514.jpg" alt=""></div>
+        <div><img class="item" src="images/20230810_152211.jpg" alt=""></div>
+        <div><img class="item" src="images/20230825_124024.jpg" alt=""></div>
+        <div><img src="images/20231110_205612.jpg" alt="" class="item"></div>
+        <div ><img class="item" src="images/20221214_091946.jpg" alt=""></div>
+        <div><img class="item"src="images/20221217_154253.jpg" alt=""></div>
+        <div><img class="item" src="images/20230107_174655.jpg" alt=""></div>
+        <div><img class="item"src="images/20230311_095725.jpg" alt=""></div>
+        <div><img class="item" src="images/20230315_181305.jpg" alt=""></div>
+        <div><img class="item"src="images/20230323_152748.jpg" alt=""></div>
+        <div><img class="item" src="images/20230502_185514.jpg" alt=""></div>
+        <div><img class="item" src="images/20230810_152211.jpg" alt=""></div>
+        <div><img class="item" src="images/20230825_124024.jpg" alt=""></div>
+        <div><img src="images/20231110_205612.jpg" alt="" class="item"></div>
+       
+    </div>
+    <div class="popup">
+        <span>&times;</span>
+        <img id="popupImage" style="height: 100%; width: 100%;" src="" alt="">
+        
+    </div>
+    <script>
+        document.querySelectorAll('.container img').forEach(item =>{
+            item.addEventListener('click', function(){
+              
+                 var imageSrc = item.src;
+                 document.getElementById('popupImage').src = imageSrc;
+                 document.querySelector('.popup').style.display='block';
+            });
+           
+        });
+
+        document.querySelector('.popup span').addEventListener('click', function(){
+            document.querySelector('.popup').style.display = 'none';
+        });
+    </script>
+    
+</body>
+</html>
